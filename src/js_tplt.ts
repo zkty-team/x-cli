@@ -1,4 +1,4 @@
-import {warning,onceWarning} from './util2'
+import {warning,onceWarning} from './util'
 import {Tplt} from './Tplt'
 
 export class DemoTplt extends Tplt{
