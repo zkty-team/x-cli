@@ -2,7 +2,7 @@
 
 let {app} = require('./app')
 let {modules} = require('./modules')
-let {model} = require('./model')
+let model = require('./model')
 
 require('yargs') // eslint-disable-line
   .command('app', 'app relation', (yargs) => {
@@ -23,6 +23,6 @@ require('yargs') // eslint-disable-line
   .command('model', 'model relation', (yargs) => {
     yargs.positional('name', { describe: 'port to bind on', default: 'model.ts' }) }, 
     (argv) => {
-        model(argv)
+        model.parse(argv)
   })
   .argv
