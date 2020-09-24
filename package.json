@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "tsc -p .",
+    "patch": "npm version patch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
