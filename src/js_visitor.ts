@@ -40,6 +40,13 @@ export default class JSVisitor extends Vistor {
     htmlT.gen(`./h5/src/index.html`)
   }
 
+  removeBracket(text:string){
+    text = text.replace(/\n/g, '^');
+    text = text.replace(/^ *\{(.*)\} *$/,'$1');
+    text = text.replace(/\^/g, '\n');
+    return text;
+  }
+
   visitFunc(node: ts.Node) {
     const funcname = node["name"].text;
 
@@ -50,8 +57,8 @@ export default class JSVisitor extends Vistor {
 
     const arg0 = node["parameters"].length?node["parameters"][0]:null;
     const body = this.extractSRC(node["body"]);
-    this.funcs.push(funcname)
-    this.demoT.body+=body
+    this.funcs.push(funcname);
+    this.demoT.body+=this.removeBracket(body);
   
     if(!istest){
       this.methods.push({
