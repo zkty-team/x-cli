@@ -8,7 +8,7 @@ import ReadmeVisitor from "./readme_visitor";
 
 export let model = {
   parse:(args)=>{
-      let fileName = args.name  
+      let fileName:string = args['_'].pop()
       const sourceFile = ts.createSourceFile(
         fileName,
         readFileSync(fileName).toString(),

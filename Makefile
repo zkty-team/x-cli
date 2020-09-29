@@ -6,7 +6,7 @@ install:
 	npm run build  && npm link
 
 model:
-	@ts-node src/index.ts  model --name ./model.ts
+	@ts-node src/index.ts  model ./model.ts
 
 watch:
 	# brew install watchexec
