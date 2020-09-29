@@ -6,7 +6,7 @@ import JSVisitor from "./js_visitor";
 import OCVisitor from "./oc_visitor";
 import ReadmeVisitor from "./readme_visitor";
 
-module.exports={
+export let model = {
   parse:(args)=>{
       let fileName = args.name  
       const sourceFile = ts.createSourceFile(
