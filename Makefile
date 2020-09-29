@@ -12,8 +12,8 @@ watch:
 	# brew install watchexec
 	watchexec -c --exts ts make modules_install
 
-modules_install:
-	@ts-node src/index.ts  modules install camera
+module_install:
+	@ts-node src/index.ts  module install camera
 
 init:
 	@ts-node src/index.ts  app init demo

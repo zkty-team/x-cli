@@ -15,8 +15,8 @@ require('yargs') // eslint-disable-line
   .option('verbose', { alias: 'v', type: 'boolean', description: 'Run with verbose logging' })
 
   .command(
-           'modules', 
-           'modules relation', 
+           'module', 
+           'module relation', 
            (yargs) => {
               yargs.command('install [modulename]', 'isntall module with npm , pod, gralde', (yargs) => {}, (argv) => { modules.install(argv) })
               yargs.positional('name', { describe: 'port to bind on', default: 5000 }) }, 
