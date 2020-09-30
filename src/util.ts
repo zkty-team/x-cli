@@ -15,17 +15,20 @@ export function onceWarning(){
 // only generated when file is not existed!
 `}
 
-export function run(cmd) {
+export function run(cmd, cb?, ecb?) {
     exec(cmd, (error, stdout, stderr) => {
+      if(error || stderr)
+        console.log(error,stderr)
+
       if (error) {
-        console.log(`error: ${error.message}`);
+        if (ecb) {
+          ecb(error, stderr);
+        } else {
+          console.log(`${error} ${stderr}`);
+        }
         return;
       }
-      if (stderr) {
-        console.log(`stderr: ${stderr}`);
-        return;
-      }
-      console.log(`stdout: ${stdout}`);
+      cb(stdout);
     });
   }
 

@@ -17,3 +17,6 @@ module_install:
 
 init:
 	@ts-node src/index.ts  app init demo
+
+module_autolink:
+	@ts-node src/index.ts  module autolink 

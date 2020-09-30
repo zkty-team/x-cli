@@ -19,14 +19,14 @@ require('yargs') // eslint-disable-line
            'module relation', 
            (yargs) => {
               yargs.command('install [modulename]', 'isntall module with npm , pod, gralde', (yargs) => {}, (argv) => { modules.install(argv) })
-              yargs.positional('name', { describe: 'port to bind on', default: 5000 }) }, 
-           (argv) => { modules(argv) }
+              yargs.positional('name', { describe: 'port to bind on', default: 5000 }) 
+           }, 
+           (argv) => { modules.autolink(argv) }
   )
   .command(
            'model', 
            'model relation', 
            (yargs) => {yargs.positional('name', { describe: 'port to bind on', default: 'model.ts' }) }, 
-           (argv) => { model.parse(argv) 
-           }
+           (argv) => { model.parse(argv)}
   )
   .argv
