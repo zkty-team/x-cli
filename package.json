@@ -14,10 +14,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^9.0.0"
+  },
   "dependencies": {
-    "argparse": "^2.0.1",
+    "@types/node": "^14.6.4",
     "fs-extra": "^9.0.1",
-    "ts-node": "^9.0.0",
-    "yargs": "^16.0.3"
+    "yargs": "^16.0.3",
+    "typescript-estree": "^18.1.0",
+    "typescript-parser": "^2.6.1"
   }
 }
