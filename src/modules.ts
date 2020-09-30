@@ -8,7 +8,7 @@ export let modules = {
   install: (args) => {
     console.log("modules install called", args.modulename);
   },
-  autolink: (args) => {
+  autolink: () => {
     function filterName(data, name) {
       if (!data) return;
       let deps = data["dependencies"];

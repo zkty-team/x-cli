@@ -7,11 +7,10 @@ import OCVisitor from "./oc_visitor";
 import ReadmeVisitor from "./readme_visitor";
 
 export let model = {
-  parse:(args)=>{
-      let fileName:string = args['_'].pop()
+  parse:(modelpath)=>{
       const sourceFile = ts.createSourceFile(
-        fileName,
-        readFileSync(fileName).toString(),
+        modelpath,
+        readFileSync(modelpath).toString(),
         ts.ScriptTarget.ES2015,
         /*setParentNodes */ false
       );

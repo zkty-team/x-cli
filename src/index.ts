@@ -1,32 +1,36 @@
 #!/usr/bin/env node
 
-let {app} = require('./app')
-let {modules} = require('./modules')
-let {model} = require('./model')
+const {app} = require('./app')
+const {modules} = require('./modules')
+const {model} = require('./model')
+const { program } = require('commander');
 
-require('yargs') // eslint-disable-line
-  .command('app', 'app relation', (yargs) => {
-    yargs
-    .positional('name', { describe: 'port to bind on', default: 'app' }) }, 
-    (argv) => {
-        if (argv.verbose) console.info(`start server on :${argv.port}`)
-        app.init(argv)
-  })
-  .option('verbose', { alias: 'v', type: 'boolean', description: 'Run with verbose logging' })
 
-  .command(
-           'module', 
-           'module relation', 
-           (yargs) => {
-              yargs.command('install [modulename]', 'isntall module with npm , pod, gralde', (yargs) => {}, (argv) => { modules.install(argv) })
-              yargs.positional('name', { describe: 'port to bind on', default: 5000 }) 
-           }, 
-           (argv) => { modules.autolink(argv) }
-  )
-  .command(
-           'model', 
-           'model relation', 
-           (yargs) => {yargs.positional('name', { describe: 'port to bind on', default: 'model.ts' }) }, 
-           (argv) => { model.parse(argv)}
-  )
-  .argv
+program
+  .command('app')
+  .description('app relation')
+  .action(() => {
+    console.log('app');
+  });
+
+program
+  .command('module')
+  .description('module relation')
+  .action(() => {
+     modules.autolink() 
+  });
+
+program
+  .command('model', { isDefault: true })
+  .description('model relation')
+  .option('-p,--platform <platform>', 'generate code for specified platform','ios')
+  .action((opts) => {
+    let args = opts.args
+
+    if(args && args.length==1) {
+      model.parse(args[0])
+    }
+  });
+
+program.parse(process.argv);
+
