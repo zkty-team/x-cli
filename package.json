@@ -1,10 +1,10 @@
 {
-  "name": "@zkty/x-cli",
+  "name": "@zkty-team/x-cli",
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "bin": {
-    "x-cli2": "./lib/index.js"
+    "x-cli": "./lib/index.js"
   },
   "scripts": {
     "build": "tsc -p .",
