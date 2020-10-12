@@ -10,7 +10,9 @@ model:
 
 watch:
 	# brew install watchexec
-	watchexec -c --exts ts make module_install
+	#watchexec -c --exts ts make module_install
+	watchexec -c --exts ts make model
+
 
 module_install:
 	@ts-node src/index.ts  module install camera

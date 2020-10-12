@@ -28,7 +28,8 @@ export function run(cmd, cb?, ecb?) {
         }
         return;
       }
-      cb(stdout);
+      if(cb)
+        cb(stdout);
     });
   }
 

@@ -5,6 +5,7 @@ import JAVAVisitor from "./java_visitor";
 import JSVisitor from "./js_visitor";
 import OCVisitor from "./oc_visitor";
 import ReadmeVisitor from "./readme_visitor";
+import ConfigVisitor from "./config_visitor"
 
 export let model = {
   parse:(modelpath)=>{
@@ -19,6 +20,7 @@ export let model = {
     new JAVAVisitor().parse(sourceFile);
     new JSVisitor().parse(sourceFile);
     new ReadmeVisitor().parse(sourceFile);
+    new ConfigVisitor().parse(sourceFile);
 
   }
 }
