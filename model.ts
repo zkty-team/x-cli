@@ -2,6 +2,7 @@
 const moduleID = "com.zkty.module.nav";
 const configJson = {
   app: "hello",
+  jiguang: "",
 };
 
 interface NavTitleDTO {

@@ -18,18 +18,21 @@ export function onceWarning(){
 export function run(cmd, cb?, ecb?) {
     exec(cmd, (error, stdout, stderr) => {
       if(error || stderr)
-        console.log(error,stderr)
+        console.log(stdout, error,stderr)
 
       if (error) {
         if (ecb) {
           ecb(error, stderr);
         } else {
-          console.log(`${error} ${stderr}`);
+          console.log(`${stdout} ${error} ${stderr}`);
         }
         return;
       }
       if(cb)
         cb(stdout);
+      else{
+        console.log(stdout)
+      }
     });
   }
 

@@ -40,7 +40,7 @@ end
       });
     }
 
-    run("npm ls --dpeth=0 --json --prod", (result) => {
+    run("npm ls --dpeth=0 --json --prod", (result,cb,ecb) => {
       let jdata = JSON.parse(result);
       let jdata2 = filterName(jdata, "@zkty-team");
 
@@ -50,7 +50,7 @@ end
 
       fs.stat("./iOS/Podfile", (exists) => {
               if (exists == null) {
-                  run("cd iOS && pod install", (result) => {
+                  run("cd iOS && pod install", (result,cb,ecb) => {
                     console.log(result);
                   });
                   return true;
