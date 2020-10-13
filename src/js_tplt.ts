@@ -17,7 +17,7 @@ export class IndexTplt extends Tplt {
   finalize(){
     return `${warning()}
 
-import xengine from "@zkty-team/x-engine-moudle-engine";
+import xengine from "@zkty-team/x-engine-module-engine";
 import mock from "./mock";
 function osCheck() {
   if (!xengine.hybrid) {

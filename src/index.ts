@@ -9,8 +9,12 @@ const { program } = require('commander');
 program
   .command('app')
   .description('app relation')
-  .action(() => {
-    console.log('app');
+  .action((opts) => {
+    let args = opts.args
+    console.log(args)
+    if(args && args.length==1) {
+      app.init(args[0])
+    }
   });
 
 program
@@ -26,7 +30,7 @@ program
   .option('-p,--platform <platform>', 'generate code for specified platform','ios')
   .action((opts) => {
     let args = opts.args
-
+    console.log(args)
     if(args && args.length==1) {
       model.parse(args[0])
     }

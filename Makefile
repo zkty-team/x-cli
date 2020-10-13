@@ -10,7 +10,7 @@ model:
 
 watch:
 	# brew install watchexec
-	#watchexec -c --exts ts make module_install
+	# watchexec -c --exts ts make module_install
 	watchexec -c --exts ts make model
 
 
