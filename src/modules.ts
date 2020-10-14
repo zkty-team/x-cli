@@ -5,10 +5,10 @@ const npm = require("npm");
 const fse = require("fs-extra");
 
 export let modules = {
-  install: (args) => {
-    //TODO
-    console.log("modules install called", args.modulename);
-  },
+  init:(modulename:string)=>{
+      //run(`git clone  https://github.com/zkty-team/x-engine-app-template xxxx:${appname} @:${appname} -w`);
+      run(`coge x-engine-module-template xxxx:${modulename} @:${modulename} -w`);
+    },
   autolink: () => {
     function filterName(data, name) {
       if (!data) return;

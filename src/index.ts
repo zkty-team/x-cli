@@ -20,8 +20,17 @@ program
 program
   .command('module')
   .description('module relation')
-  .action(() => {
-     modules.autolink() 
+  .action((opts) => {
+    let args = opts.args
+    console.log(args)
+
+    if(args && args.length==1) {
+        modules.autolink() 
+    }
+    else if(args && args.length==2) {
+        modules.init(args.pop()) 
+    }
+
   });
 
 program

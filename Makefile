@@ -22,3 +22,6 @@ init:
 
 module_autolink:
 	@ts-node src/index.ts  module autolink 
+
+module_init:
+	@ts-node src/index.ts  module init helloworld 
