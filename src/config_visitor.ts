@@ -57,8 +57,10 @@ export default class ConfigVisitor extends Vistor {
     const type0 = parameters.length > 0
         ? this.visitType(parameters[0]["type"])
         : null;
-    if(type0)
+    if(type0 && this.dtos[type0])
+    {
       api.args = this.dtos[type0].args;
+    }
 
     api.funcname=funcname
     const body = this.extractSRC(node["body"]);
