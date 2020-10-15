@@ -14,7 +14,6 @@ export class APITplt extends Tplt{
   {
     Object.keys(default_obj).forEach(key=>{
       for(let i = 0; i < this.args.length; i++){
-      console.log(this.args[i],key)
         if(this.args[i].name === key){
           let val  = default_obj[key]
           let str  = ""

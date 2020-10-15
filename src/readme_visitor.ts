@@ -45,7 +45,7 @@ export default class ReadmeVisitor extends Vistor {
 
   visitFunc(node: ts.Node) {
     const funcname: string = node["name"].text;
-    if(funcname.startsWith("test")){
+    if(funcname.startsWith("test") || funcname.startsWith("_test")){
       return
     }
     let api = new APITplt()
