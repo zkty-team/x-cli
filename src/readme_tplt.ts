@@ -1,6 +1,7 @@
 
 import {warning} from './util'
 import {Tplt,Arg} from './Tplt'
+import {isFunction, isObject, isNumber} from 'util';
 
 export class APITplt extends Tplt{
   comment:string;
@@ -13,8 +14,20 @@ export class APITplt extends Tplt{
   {
     Object.keys(default_obj).forEach(key=>{
       for(let i = 0; i < this.args.length; i++){
+      console.log(this.args[i],key)
         if(this.args[i].name === key){
-          this.args[i].default_value=JSON.stringify(default_obj[key]);
+          let val  = default_obj[key]
+          let str  = ""
+          if(isFunction(val)){
+            str = val.toString();
+            str=str.replace('\n','\\n');
+          } else if(isObject(val)){
+            str = JSON.stringify(default_obj[key]);
+            str=str.replace('\n','\\n');
+          } else{
+            str = default_obj[key];
+          }
+          this.args[i].default_value=str;
         }
       }
     })
@@ -45,6 +58,7 @@ export class ReadmeTplt extends Tplt {
   apis : Array<APITplt>=[];
 
   finalize(){
+    console.log("hello",this.namespace)
     return `
 \`
 ${this.namespace}

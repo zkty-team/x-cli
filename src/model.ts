@@ -20,7 +20,7 @@ export let model = {
     new JAVAVisitor().parse(sourceFile);
     new JSVisitor().parse(sourceFile);
     new ReadmeVisitor().parse(sourceFile);
-    new ConfigVisitor().parse(sourceFile);
+    //new ConfigVisitor().parse(sourceFile);
 
   }
 }

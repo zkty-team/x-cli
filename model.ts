@@ -1,56 +1,22 @@
 // 命名空间
-const moduleID = "com.zkty.module.lope";
+const moduleID = "com.zkty.module.scan";
 
-// dto
-interface serviceUUIDDTO {
-  serviceUUID: Array<string>;
-  
+interface ScanOpenDto {
+
+    name :string,
+    age:int,
+    //扫码结果 xx(result)
+    __event__:(result)=>{};
 }
 
-function openDoor(serviceUUIDDTO: serviceUUIDDTO = {
-  serviceUUID: ["2560","FEE7"],
-}) {
-    window.openDoor = () => {
-    lope
-      .openDoor()
-      .then((res) => {
-        document.getElementById("debug_text").innerText = "ret:"+res["title"];
-      });
-  };
+function openScanView(arg:ScanOpenDto = {
+  name:'zk',
+  age:12,
+    __event__:(result)=>{},
+}){
+    window.openScanView = () => {
+        scan
+          .openScanView()
+          .then((res) => {});
+      };
 }
-
-function customOpenDoor(){
-  window.customOpenDoor = () => {
-  lope
-    .customOpenDoor()
-    .then((res) => {
-      document.getElementById("debug_text").innerText = "ret:"+res;
-    });
-  };
-
-}
-
-function lightLift(){
-  window.lightLift = () => {
-  lope
-    .lightLift()
-    .then((res) => {
-      document.getElementById("debug_text").innerText = "ret:"+res;
-    });
-  };
-
-}
-
-// have args ret primitive
-function haveArgRetPrimitive(arg:SheetDTO={title:"abc"}):string {
-    window.haveArgRetPrimitive = (...args) => {
-    lope
-      .haveArgRetPrimitive(...args)
-      .then((res) => {
-        document.getElementById("debug_text").innerText = "ret:"+res;
-      });
-  };
-}
-
-
-

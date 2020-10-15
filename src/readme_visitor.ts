@@ -142,7 +142,6 @@ export default class ReadmeVisitor extends Vistor {
   visitNameSpace(node: ts.Node) {
     if (node["name"].text === "moduleID") {
       let moduleID = node["initializer"].text;
-      let splits = moduleID.split(".");
       this.readme.namespace = moduleID;
     }
   }

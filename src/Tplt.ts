@@ -28,6 +28,9 @@ export class Arg extends Tplt {
   default_value: string=""
   comment: string;
   finalize(){
+    if(this.name.startsWith("__")){
+      this.name=this.name.replace(/_/g, '\\_');
+    }
     const tmplt =
 `| ${this.name?this.name:""} | ${this.type?this.type:""} | ${this.optional?this.optional:""} | ${this.default_value?this.default_value:""} | ${this.comment?this.comment:""} |`
     return tmplt
