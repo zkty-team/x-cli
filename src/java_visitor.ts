@@ -108,7 +108,7 @@ export default class JavaVisitor extends Vistor {
       case ts.SyntaxKind.VoidKeyword:
         return null;
       case ts.SyntaxKind.NumberKeyword:
-        return  "double";
+        return  "Double";
       case ts.SyntaxKind.TypeReference:
 
         let tmp: string = "";
@@ -118,7 +118,7 @@ export default class JavaVisitor extends Vistor {
         else if (typename === "Map") tmp += "Map";
         else if (typename === "Set") tmp += "Set";
         else if (typename === "int") tmp += "Integer";
-        else if (typename === "double") tmp += "double";
+        else if (typename === "double") tmp += "Double";
         else tmp += typename;
 
         if (node["typeArguments"]) {
