@@ -54,14 +54,15 @@ ${this.args.length?this.args.map(arg=>arg.finalize()).join("\n"):""}
 
 export class ReadmeTplt extends Tplt {
   namespace: string;
+  packageName: string;
   apis : Array<APITplt>=[];
 
   finalize(){
     console.log("hello",this.namespace)
     return `
-\`
-${this.namespace}
-\`
+\`\`\` bash
+npm install ${this.packageName}
+\`\`\`
 
 
 ${this.apis.map(e=>e.finalize()).join("\n")}

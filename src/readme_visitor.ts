@@ -143,6 +143,11 @@ export default class ReadmeVisitor extends Vistor {
     if (node["name"].text === "moduleID") {
       let moduleID = node["initializer"].text;
       this.readme.namespace = moduleID;
+      this.readme.packageName = "@zkty-team/"+moduleID.replace(/\./g,"-");
+    }
+    if (node["name"].text === "packageName") {
+      let packageName = node["initializer"].text;
+      this.readme.packageName = packageName;
     }
   }
 }
