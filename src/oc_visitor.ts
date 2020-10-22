@@ -23,7 +23,7 @@ export default class OCVisitor extends Vistor {
   }
   visitFunc(node: ts.Node) {
     const methodName: string = node["name"].text;
-    if(methodName.startsWith("test")){
+    if(methodName.startsWith("test") || methodName.startsWith("_test")){
       return
     }
     let method = new ClassMethodTmplt();

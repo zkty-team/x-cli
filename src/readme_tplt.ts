@@ -58,7 +58,6 @@ export class ReadmeTplt extends Tplt {
   apis : Array<APITplt>=[];
 
   finalize(){
-    console.log("hello",this.namespace)
     return `
 \`\`\` bash
 npm install ${this.packageName}
