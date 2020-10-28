@@ -42,6 +42,8 @@ export class APITplt extends Tplt{
 
 ${this.comment?this.comment:""}
 
+**demo**
+${this.democode?"\`\`\` js\n"+this.democode+"\n\`\`\` \n":""}
 	
 ${this.args.length?"**参数说明**":"**无参数**"}
 ${this.args.length?header:""}
@@ -49,7 +51,6 @@ ${this.args.length?this.args.map(arg=>arg.finalize()).join("\n"):""}
 `
     return tmplt
   }
-//${this.democode?"\`\`\` js\n"+this.democode+"\n\`\`\` \n":""}
 }
 
 export class ReadmeTplt extends Tplt {

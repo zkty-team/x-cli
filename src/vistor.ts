@@ -7,6 +7,13 @@ abstract class Vistor {
   abstract visitFunc(node: ts.Node): void;
   abstract visitNameSpace(node: ts.Node): void;
   final(): void{};
+  removeBracket(text:string){
+    text = text.replace(/\n/g, '^');
+    text = text.replace(/^ *\{(.*)\} *$/,'$1');
+    text = text.replace(/\^/g, '\n');
+    return text;
+  }
+
   extractSRC( node: ts.Node) {
     if(node)
       return this.fullcontent.substring(node.pos, node.end);

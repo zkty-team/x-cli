@@ -144,6 +144,7 @@ export default class ReadmeVisitor extends Vistor {
       let moduleID = node["initializer"].text;
       this.readme.namespace = moduleID;
       this.readme.packageName = "@zkty-team/"+moduleID.replace(/\./g,"-");
+      this.readme.packageName=this.readme.packageName.replace('com-zkty','x-engine')
     }
     if (node["name"].text === "packageName") {
       let packageName = node["initializer"].text;

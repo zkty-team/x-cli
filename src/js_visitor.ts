@@ -40,13 +40,6 @@ export default class JSVisitor extends Vistor {
     htmlT.gen(`./h5/src/index.html`)
   }
 
-  removeBracket(text:string){
-    text = text.replace(/\n/g, '^');
-    text = text.replace(/^ *\{(.*)\} *$/,'$1');
-    text = text.replace(/\^/g, '\n');
-    return text;
-  }
-
   visitFunc(node: ts.Node) {
     const funcname = node["name"].text;
 
